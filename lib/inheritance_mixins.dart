@@ -86,6 +86,60 @@ class Cat extends Animal with Dog, Pig{
   }
 }
 
+mixin FeaturesMixin {
+  bool blueTooth = true;
+  bool dualSim = false;
+  bool nfc = true;
+}
+
+mixin UtilitiesMixin on FeaturesMixin {
+  bool calculator = true;
+  bool flashlight = true;
+  bool thermometer = false;
+
+  String _has(bool feat) => feat ? 'yes' : 'no';
+
+  void getAllFeatures() => print('''
+  --FEATURES--
+
+  Bluetooth: ${_has(super.blueTooth)}
+  Dual SIM: ${_has(super.dualSim)}
+  NFC: ${_has(super.nfc)}
+  Calculator: ${_has(calculator)}
+  Flashlight: ${_has(flashlight)}
+  Thermometer: ${_has(thermometer)}
+  ===
+  ''');
+}
+
+abstract class Device{
+  String name;
+  String manufacturer;
+  void getDeviceInfo();
+}
+
+class Phone with FeaturesMixin,UtilitiesMixin implements Device {
+  @override
+  String manufacturer;
+
+  @override
+  String name;
+
+  Phone(this.name, this.manufacturer);
+  @override
+  void getDeviceInfo() {
+    print('''
+  ===
+  Device name: $name
+  Manufactured by: $manufacturer
+  ''');
+  }
+
+}
+
+
+
+
 
 void main(){
 

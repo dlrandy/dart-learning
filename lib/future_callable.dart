@@ -54,15 +54,46 @@ void checkVersion() async{
 
 void main(){
 
-  Future<int>.delayed(Duration(seconds: 6),()=>Future.error('errrrr'))
-      .then((val){
-        print(val);
-  }).catchError(
-          (err) => print('caught $err'),
-    test: (err) => err.runtimeType == String,
-  ).whenComplete((){
-    print('completed');
-  });
+
+//  lookupVersion(cb) => Timer(
+//  Duration(seconds: 2),
+//  () => cb('v2.1.0')
+//  );
+//  lookupVersion((version) => print('Got the version: $version'));
+//
+//  Future LookupVersionAsFuture(){
+//     var completer = Completer();
+//     lookupVersion((version)=> completer.complete(version));
+//
+//     return completer.future;
+//   }
+//   LookupVersionAsFuture()
+//    .then((version) => print('get future version: $version'))
+//  .catchError(print);
+//
+//Future lookUpVersionWithAsyncAwait() async{
+//    try {
+//      var version = await LookupVersionAsFuture();
+//      print('get the async/await version: $version');
+//    } catch(e) {
+//      print('the exception is: $e');
+//    }
+//}
+//lookUpVersionWithAsyncAwait();
+
+//  var result = Future(() => 'hello future.');
+//  print(result);
+//  result.then((str) => print(str));
+
+//  Future<int>.delayed(Duration(seconds: 6),()=>Future.error('errrrr'))
+//      .then((val){
+//        print(val);
+//  }).catchError(
+//          (err) => print('caught $err'),
+//    test: (err) => err.runtimeType == String,
+//  ).whenComplete((){
+//    print('completed');
+//  });
 
 //  checkVersion();
 
